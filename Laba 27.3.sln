@@ -1,28 +1,52 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Laba 27.3", "Laba 27.3\Laba 27.3.vcxproj", "{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Debug|x64.ActiveCfg = Debug|x64
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Debug|x64.Build.0 = Debug|x64
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Debug|x86.ActiveCfg = Debug|Win32
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Debug|x86.Build.0 = Debug|Win32
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Release|x64.ActiveCfg = Release|x64
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Release|x64.Build.0 = Release|x64
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Release|x86.ActiveCfg = Release|Win32
-		{A0642502-CCBD-4E6C-B63F-050F0B3AFC58}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int a[30][30],n,*p[30],**dp,b[10],i,j;
+    cout<<"Input n: ";
+ 	cin>>n;
+ 	dp=p;
+     for(i=0;i<n;i++)
+     {
+        p[i]=a[i];
+   }
+   for(i=0;i<n;i++)
+   {
+    cout<<endl;
+       for(j=0;j<n;j++)
+       {
+           cin>>*(*(dp+i)+j);
+      }
+   }
+   for(i=0;i<n;i++)
+   {
+       for(j=0;j<n;j++)
+           cout<<*(*(dp+i)+j)<<" ";
+   cout<<endl;
+   }
+
+   int *pb = b;
+   for(i=0;i<n;i++)
+   {
+    int min=*(*(p+i)+0);
+    int minid=0;
+
+    for(j=1;j<n;j++)
+    {
+        if(*(*(p+i)+j)<min)
+        {
+            min=*(*(p+i)+j);
+            minid=j;
+        }
+    }
+    *(pb+i)=minid;
+   }
+   cout<<endl;
+   for ( i = 0; i < n; i++)
+   {
+    cout<<*(pb+i)<<" ";
+   }
+
+    return 0;
+}
